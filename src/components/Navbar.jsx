@@ -12,6 +12,22 @@ const Navbar = () => {
     navigate('/');
   };
 
+  const getDashboardLink = () => {
+    if (!user) return null;
+    return `/#/dashboard/${user.role}`;
+  };
+
+  const getRoleLabel = (role) => {
+    const labels = {
+      student: 'Student Dashboard',
+      teacher: 'Teacher Panel',
+      parent: 'Parent Portal',
+      school: 'School Admin',
+      admin: 'System Admin'
+    };
+    return labels[role] || 'Dashboard';
+  };
+
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,12 +42,75 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-              Features
-            </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-              About
-            </a>
+            {isAuthenticated && user ? (
+              <>
+                <a 
+                  href={getDashboardLink()} 
+                  className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+                >
+                  {getRoleLabel(user.role)}
+                </a>
+                {user.role === 'student' && (
+                  <>
+                    <a href="/#/dashboard/student" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                      My Classes
+                    </a>
+                    <a href="/#/dashboard/student" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                      Assignments
+                    </a>
+                  </>
+                )}
+                {user.role === 'teacher' && (
+                  <>
+                    <a href="/#/dashboard/teacher" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                      My Classes
+                    </a>
+                    <a href="/#/dashboard/teacher" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                      Gradebook
+                    </a>
+                  </>
+                )}
+                {user.role === 'parent' && (
+                  <>
+                    <a href="/#/dashboard/parent" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                      Children
+                    </a>
+                    <a href="/#/dashboard/parent" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                      Reports
+                    </a>
+                  </>
+                )}
+                {user.role === 'school' && (
+                  <>
+                    <a href="/#/dashboard/school" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                      Teachers
+                    </a>
+                    <a href="/#/dashboard/school" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                      Students
+                    </a>
+                  </>
+                )}
+                {user.role === 'admin' && (
+                  <>
+                    <a href="/#/dashboard/admin" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                      Users
+                    </a>
+                    <a href="/#/dashboard/admin" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                      Settings
+                    </a>
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                  Features
+                </a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                  About
+                </a>
+              </>
+            )}
           </div>
 
           {/* Desktop Auth */}
@@ -86,49 +165,150 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-4 border-t border-gray-100">
-            <a 
-              href="#features" 
-              className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Features
-            </a>
-            <a 
-              href="#" 
-              className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </a>
-            {isAuthenticated ? (
-              <div className="space-y-4 pt-4 border-t border-gray-100">
-                <span className="block text-gray-600 text-sm">
-                  {user?.name}
-                </span>
-                <button
-                  onClick={handleLogout}
-                  className="block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
+            {isAuthenticated && user ? (
+              <>
+                <a 
+                  href={getDashboardLink()} 
+                  className="block text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
-                  Logout
-                </button>
-              </div>
+                  {getRoleLabel(user.role)}
+                </a>
+                {user.role === 'student' && (
+                  <>
+                    <a 
+                      href="/#/dashboard/student" 
+                      className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      My Classes
+                    </a>
+                    <a 
+                      href="/#/dashboard/student" 
+                      className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Assignments
+                    </a>
+                  </>
+                )}
+                {user.role === 'teacher' && (
+                  <>
+                    <a 
+                      href="/#/dashboard/teacher" 
+                      className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      My Classes
+                    </a>
+                    <a 
+                      href="/#/dashboard/teacher" 
+                      className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Gradebook
+                    </a>
+                  </>
+                )}
+                {user.role === 'parent' && (
+                  <>
+                    <a 
+                      href="/#/dashboard/parent" 
+                      className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Children
+                    </a>
+                    <a 
+                      href="/#/dashboard/parent" 
+                      className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Reports
+                    </a>
+                  </>
+                )}
+                {user.role === 'school' && (
+                  <>
+                    <a 
+                      href="/#/dashboard/school" 
+                      className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Teachers
+                    </a>
+                    <a 
+                      href="/#/dashboard/school" 
+                      className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Students
+                    </a>
+                  </>
+                )}
+                {user.role === 'admin' && (
+                  <>
+                    <a 
+                      href="/#/dashboard/admin" 
+                      className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Users
+                    </a>
+                    <a 
+                      href="/#/dashboard/admin" 
+                      className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Settings
+                    </a>
+                  </>
+                )}
+                <div className="pt-4 border-t border-gray-100">
+                  <span className="block text-gray-600 text-sm mb-2">
+                    {user?.name}
+                  </span>
+                  <button
+                    onClick={handleLogout}
+                    className="block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </>
             ) : (
-              <div className="space-y-4 pt-4 border-t border-gray-100">
-                <Link 
-                  to="/login" 
-                  className="block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
+              <>
+                <a 
+                  href="#features" 
+                  className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Login
-                </Link>
-                <Link 
-                  to="/login" 
-                  className="block bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-center"
+                  Features
+                </a>
+                <a 
+                  href="#" 
+                  className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Try Demo
-                </Link>
-              </div>
+                  About
+                </a>
+                <div className="space-y-4 pt-4 border-t border-gray-100">
+                  <Link 
+                    to="/login" 
+                    className="block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link 
+                    to="/login" 
+                    className="block bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-center"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Try Demo
+                  </Link>
+                </div>
+              </>
             )}
           </div>
         )}

@@ -4,8 +4,11 @@ import { AuthProviderWrapper } from './auth/authProvider';
 import { ProtectedRoute, PublicRoute } from './auth/protectedRoute';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
-import DashboardPage from './pages/DashboardPage';
-import { getDashboardPath } from './auth/roles';
+import StudentDashboard from './pages/dashboard/student';
+import TeacherDashboard from './pages/dashboard/teacher';
+import ParentDashboard from './pages/dashboard/parent';
+import SchoolDashboard from './pages/dashboard/school';
+import AdminDashboard from './pages/dashboard/admin';
 
 function App() {
   return (
@@ -33,10 +36,46 @@ function App() {
           
           {/* Protected Dashboard Routes */}
           <Route 
-            path="/dashboard/:role" 
+            path="/dashboard/student" 
             element={
               <ProtectedRoute>
-                <DashboardPage />
+                <StudentDashboard />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/dashboard/teacher" 
+            element={
+              <ProtectedRoute>
+                <TeacherDashboard />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/dashboard/parent" 
+            element={
+              <ProtectedRoute>
+                <ParentDashboard />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/dashboard/school" 
+            element={
+              <ProtectedRoute>
+                <SchoolDashboard />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/dashboard/admin" 
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
               </ProtectedRoute>
             } 
           />
