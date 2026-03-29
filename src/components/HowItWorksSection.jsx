@@ -1,0 +1,141 @@
+import React from 'react';
+
+const HowItWorksSection = () => {
+  const steps = [
+    {
+      number: "1",
+      title: "Register Your Account",
+      description: "Sign up as a student, teacher, parent, or school administrator. Quick verification process takes less than 2 minutes.",
+      details: ["Choose your role", "Verify email", "Complete profile"]
+    },
+    {
+      number: "2", 
+      title: "Join Class or School",
+      description: "Connect with your educational institution using unique class codes or school invitations.",
+      details: ["Enter class code", "Join school network", "Set preferences"]
+    },
+    {
+      number: "3",
+      title: "Start Learning Journey",
+      description: "Access personalized learning content, track progress, and collaborate with your educational community.",
+      details: ["Access dashboard", "View assignments", "Track progress"]
+    }
+  ];
+
+  return (
+    <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            How Dao-Yu-101 Works
+          </h2>
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+            Get started in minutes with our simple onboarding process designed for all user types.
+          </p>
+        </div>
+
+        {/* Steps */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {steps.map((step, index) => (
+            <div key={index} className="relative">
+              {/* Step Number */}
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-secondary text-white text-2xl font-bold rounded-full mb-6 mx-auto">
+                {step.number}
+              </div>
+              
+              {/* Connector Line */}
+              {index < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary/20 to-transparent" 
+                     style={{ width: 'calc(100% - 4rem)', left: 'calc(50% + 2rem)' }}></div>
+              )}
+              
+              {/* Content */}
+              <div className="text-center">
+                <h3 className="text-xl font-semibold text-text-primary mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-text-secondary mb-4">
+                  {step.description}
+                </p>
+                
+                {/* Details */}
+                <ul className="space-y-2 text-sm text-text-secondary">
+                  {step.details.map((detail, detailIndex) => (
+                    <li key={detailIndex} className="flex items-center justify-center space-x-2">
+                      <svg className="w-4 h-4 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                      </svg>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Visual Demo */}
+        <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 border border-primary/20">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl font-bold text-text-primary mb-4">
+                Ready to Transform Your Educational Experience?
+              </h3>
+              <p className="text-text-secondary mb-6">
+                Join thousands of students, teachers, and parents who have already streamlined their educational journey with Dao-Yu-101.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="btn-primary">Get Started Now</button>
+                <button className="btn-secondary">Watch Demo</button>
+              </div>
+            </div>
+            
+            {/* Demo Preview */}
+            <div className="bg-surface rounded-xl p-6 shadow-soft">
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-medium text-text-primary">Student Dashboard</div>
+                    <div className="text-sm text-text-secondary">View assignments and progress</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-medium text-text-primary">Teacher Tools</div>
+                    <div className="text-sm text-text-secondary">Create and manage classes</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-medium text-text-primary">Parent Access</div>
+                    <div className="text-sm text-text-secondary">Monitor child's progress</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HowItWorksSection;

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 shadow-soft hover:shadow-soft-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface hover:bg-gray-50 text-text-primary font-medium py-3 px-6 rounded-lg border border-border transition-all duration-200 shadow-soft hover:shadow-soft-lg;
+  }
+  
+  .card {
+    @apply bg-surface rounded-xl shadow-soft border border-border p-6 transition-all duration-200 hover:shadow-soft-lg;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+}
