@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProviderWrapper } from './auth/authProvider';
 import { ProtectedRoute, PublicRoute } from './auth/protectedRoute';
 import LandingPage from './pages/LandingPage';
