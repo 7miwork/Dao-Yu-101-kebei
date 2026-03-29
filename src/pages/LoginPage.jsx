@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
 import { DEMO_ACCOUNTS } from '../auth/demoAccounts';
+import { getRoleLabel } from '../auth/roleLabels';
 import { BASE_URL } from '../config/base';
 
 const LoginPage = () => {
@@ -117,33 +118,21 @@ const LoginPage = () => {
         {/* Demo Accounts */}
         <div className="mt-8">
           <div className="text-center mb-4">
-            <h3 className="text-lg font-semibold text-text-primary">Try Demo Accounts</h3>
+            <h3 className="text-lg font-semibold text-text-primary">Quick Access (Demo)</h3>
             <p className="text-sm text-text-secondary">
-              Click any account below to login instantly
+              Select a role to login instantly
             </p>
           </div>
           
-          <div className="space-y-2">
+          <div className="grid grid-cols-2 gap-3">
             {DEMO_ACCOUNTS.map((account) => (
               <button
                 key={account.id}
                 onClick={() => handleDemoLogin(account.email, account.password)}
-                className="w-full card hover:border-primary hover:bg-primary/5 transition-all duration-200 text-left group"
+                className="p-4 rounded-xl border border-border bg-white hover:border-primary hover:bg-primary/5 transition-all duration-200 text-center group cursor-pointer"
               >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="font-medium text-text-primary group-hover:text-primary">
-                      {account.name}
-                    </div>
-                    <div className="text-sm text-text-secondary">
-                      {account.email} • {account.role}
-                    </div>
-                  </div>
-                  <div className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 1.414L10.586 9.5H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd"/>
-                    </svg>
-                  </div>
+                <div className="font-medium text-text-primary group-hover:text-primary text-sm">
+                  {getRoleLabel(account.role)}
                 </div>
               </button>
             ))}
