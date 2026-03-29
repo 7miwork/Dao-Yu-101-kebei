@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProviderWrapper } from './auth/authProvider';
 import { ProtectedRoute, PublicRoute } from './auth/protectedRoute';
@@ -9,8 +9,21 @@ import TeacherDashboard from './pages/dashboard/teacher';
 import ParentDashboard from './pages/dashboard/parent';
 import SchoolDashboard from './pages/dashboard/school';
 import AdminDashboard from './pages/dashboard/admin';
+import { BASE_URL } from './config/base';
 
 function App() {
+  // Back button failsafe - ensure we always stay within the repo path
+  useEffect(() => {
+    const handlePopState = () => {
+      if (window.location.pathname === '/' || window.location.pathname === '') {
+        window.location.href = BASE_URL;
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   return (
     <AuthProviderWrapper>
       <Router>
@@ -82,7 +95,7 @@ function App() {
           
           {/* Fallback Routes */}
           <Route path="/dashboard" element={<Navigate to="/dashboard/student" replace />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to={BASE_URL} replace />} />
         </Routes>
       </Router>
     </AuthProviderWrapper>

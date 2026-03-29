@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
+import { BASE_URL, getDashboardUrl, getLoginUrl } from '../config/base';
 
 const Navbar = () => {
   const { isAuthenticated, user, logout } = useAuth();
-  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleLogout = () => {
     logout();
-    navigate('/#/');
+    window.location.href = BASE_URL;
   };
 
   const getDashboardLink = () => {
     if (!user) return null;
-    return `/#/dashboard/${user.role}`;
+    return getDashboardUrl(user.role);
   };
 
   const getRoleLabel = (role) => {
@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/#/" className="flex items-center space-x-2">
+          <Link to={BASE_URL} className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">DY</span>
             </div>
@@ -52,50 +52,50 @@ const Navbar = () => {
                 </a>
                 {user.role === 'student' && (
                   <>
-                    <a href="/#/dashboard/student" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <a href={getDashboardUrl('student')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       My Classes
                     </a>
-                    <a href="/#/dashboard/student" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <a href={getDashboardUrl('student')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       Assignments
                     </a>
                   </>
                 )}
                 {user.role === 'teacher' && (
                   <>
-                    <a href="/#/dashboard/teacher" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <a href={getDashboardUrl('teacher')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       My Classes
                     </a>
-                    <a href="/#/dashboard/teacher" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <a href={getDashboardUrl('teacher')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       Gradebook
                     </a>
                   </>
                 )}
                 {user.role === 'parent' && (
                   <>
-                    <a href="/#/dashboard/parent" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <a href={getDashboardUrl('parent')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       Children
                     </a>
-                    <a href="/#/dashboard/parent" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <a href={getDashboardUrl('parent')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       Reports
                     </a>
                   </>
                 )}
                 {user.role === 'school' && (
                   <>
-                    <a href="/#/dashboard/school" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <a href={getDashboardUrl('school')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       Teachers
                     </a>
-                    <a href="/#/dashboard/school" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <a href={getDashboardUrl('school')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       Students
                     </a>
                   </>
                 )}
                 {user.role === 'admin' && (
                   <>
-                    <a href="/#/dashboard/admin" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <a href={getDashboardUrl('admin')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       Users
                     </a>
-                    <a href="/#/dashboard/admin" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <a href={getDashboardUrl('admin')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       Settings
                     </a>
                   </>
@@ -130,13 +130,13 @@ const Navbar = () => {
             ) : (
               <>
                 <Link 
-                  to="/#/login" 
+                  to={getLoginUrl()} 
                   className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
                 >
                   Login
                 </Link>
                 <Link 
-                  to="/#/login" 
+                  to={getLoginUrl()} 
                   className="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Try Demo
@@ -177,14 +177,14 @@ const Navbar = () => {
                 {user.role === 'student' && (
                   <>
                     <a 
-                      href="/#/dashboard/student" 
+                      href={getDashboardUrl('student')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       My Classes
                     </a>
                     <a 
-                      href="/#/dashboard/student" 
+                      href={getDashboardUrl('student')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -195,14 +195,14 @@ const Navbar = () => {
                 {user.role === 'teacher' && (
                   <>
                     <a 
-                      href="/#/dashboard/teacher" 
+                      href={getDashboardUrl('teacher')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       My Classes
                     </a>
                     <a 
-                      href="/#/dashboard/teacher" 
+                      href={getDashboardUrl('teacher')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -213,14 +213,14 @@ const Navbar = () => {
                 {user.role === 'parent' && (
                   <>
                     <a 
-                      href="/#/dashboard/parent" 
+                      href={getDashboardUrl('parent')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Children
                     </a>
                     <a 
-                      href="/#/dashboard/parent" 
+                      href={getDashboardUrl('parent')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -231,14 +231,14 @@ const Navbar = () => {
                 {user.role === 'school' && (
                   <>
                     <a 
-                      href="/#/dashboard/school" 
+                      href={getDashboardUrl('school')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Teachers
                     </a>
                     <a 
-                      href="/#/dashboard/school" 
+                      href={getDashboardUrl('school')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -249,14 +249,14 @@ const Navbar = () => {
                 {user.role === 'admin' && (
                   <>
                     <a 
-                      href="/#/dashboard/admin" 
+                      href={getDashboardUrl('admin')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Users
                     </a>
                     <a 
-                      href="/#/dashboard/admin" 
+                      href={getDashboardUrl('admin')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -294,14 +294,14 @@ const Navbar = () => {
                 </a>
                 <div className="space-y-4 pt-4 border-t border-gray-100">
                   <Link 
-                    to="/#/login" 
+                    to={getLoginUrl()} 
                     className="block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Login
                   </Link>
                   <Link 
-                    to="/#/login" 
+                    to={getLoginUrl()} 
                     className="block bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-center"
                     onClick={() => setMobileMenuOpen(false)}
                   >

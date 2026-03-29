@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
 import { DEMO_ACCOUNTS } from '../auth/demoAccounts';
+import { BASE_URL } from '../config/base';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -152,7 +153,7 @@ const LoginPage = () => {
         {/* Back to Home */}
         <div className="text-center">
           <a
-            href="/"
+            href={BASE_URL}
             className="text-primary hover:text-primary/80 font-medium"
           >
             ← Back to Home
