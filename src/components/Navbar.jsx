@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate('/#/');
   };
 
   const getDashboardLink = () => {
@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/#/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">DY</span>
             </div>
@@ -130,13 +130,13 @@ const Navbar = () => {
             ) : (
               <>
                 <Link 
-                  to="/login" 
+                  to="/#/login" 
                   className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
                 >
                   Login
                 </Link>
                 <Link 
-                  to="/login" 
+                  to="/#/login" 
                   className="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Try Demo
@@ -294,14 +294,14 @@ const Navbar = () => {
                 </a>
                 <div className="space-y-4 pt-4 border-t border-gray-100">
                   <Link 
-                    to="/login" 
+                    to="/#/login" 
                     className="block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Login
                   </Link>
                   <Link 
-                    to="/login" 
+                    to="/#/login" 
                     className="block bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-center"
                     onClick={() => setMobileMenuOpen(false)}
                   >
