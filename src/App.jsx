@@ -5,6 +5,7 @@ import { ProtectedRoute, PublicRoute } from './auth/protectedRoute';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
+import { getDashboardPath } from './auth/roles';
 
 function App() {
   return (
