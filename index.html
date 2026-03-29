@@ -4,10 +4,38 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dao-yu-101-kebei</title>
+    <meta name="description" content="Dao-Yu-101 — Modern Learning System for Schools, Teachers & Families. Structured learning, progress tracking, and school-ready education tools." />
+    <title>Dao-Yu-101 — Modern Learning System</title>
+    <style>
+      /* Critical CSS to prevent blank page */
+      body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+      #root { min-height: 100vh; }
+      .loading-fallback {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f9fafb;
+      }
+      .loading-spinner {
+        width: 48px;
+        height: 48px;
+        border: 3px solid #e5e7eb;
+        border-top-color: #2563eb;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="loading-fallback">
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
