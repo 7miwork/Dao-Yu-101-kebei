@@ -1,20 +1,21 @@
 import React from 'react';
+import { t } from '../i18n';
 
 const UIPreviewSection = () => {
   const previews = [
     {
-      title: "Student Dashboard",
-      description: "Track courses, assignments, and progress in one place",
+      title: t("uiPreview.student.title"),
+      description: t("uiPreview.student.description"),
       color: "blue"
     },
     {
-      title: "Teacher Dashboard",
-      description: "Manage classes, create content, and monitor student performance",
+      title: t("uiPreview.teacher.title"),
+      description: t("uiPreview.teacher.description"),
       color: "indigo"
     },
     {
-      title: "Parent Overview",
-      description: "Stay informed about your child's learning journey",
+      title: t("uiPreview.parent.title"),
+      description: t("uiPreview.parent.description"),
       color: "teal"
     }
   ];
@@ -49,10 +50,10 @@ const UIPreviewSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Designed for every role
+            {t("uiPreview.title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Purpose-built interfaces for students, teachers, and parents.
+            {t("uiPreview.subtitle")}
           </p>
         </div>
 
@@ -120,7 +121,7 @@ const UIPreviewSection = () => {
         {/* Coming Soon Note */}
         <div className="text-center mt-12">
           <p className="text-sm text-gray-500">
-            Full dashboard interfaces coming soon
+            {t("uiPreview.comingSoon")}
           </p>
         </div>
       </div>

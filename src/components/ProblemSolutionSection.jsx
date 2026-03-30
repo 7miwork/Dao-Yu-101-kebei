@@ -1,17 +1,9 @@
 import React from 'react';
+import { t } from '../i18n';
 
 const ProblemSolutionSection = () => {
-  const problems = [
-    "Fragmented learning tools across multiple platforms",
-    "No centralized system for tracking progress",
-    "Poor visibility into student learning outcomes"
-  ];
-
-  const solutions = [
-    "Unified platform for all educational needs",
-    "Role-based dashboards for every stakeholder",
-    "Structured learning paths with clear milestones"
-  ];
+  const problems = t("problemSolution.problems");
+  const solutions = t("problemSolution.solutions");
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
@@ -19,10 +11,10 @@ const ProblemSolutionSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Why schools choose Dao-Yu-101
+            {t("problemSolution.title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We solve the core challenges facing modern educational institutions.
+            {t("problemSolution.subtitle")}
           </p>
         </div>
 
@@ -35,7 +27,7 @@ const ProblemSolutionSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900">The Challenge</h3>
+              <h3 className="text-xl font-bold text-gray-900">{t("problemSolution.challenge")}</h3>
             </div>
             <div className="space-y-4">
               {problems.map((problem, index) => (
@@ -55,7 +47,7 @@ const ProblemSolutionSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Our Solution</h3>
+              <h3 className="text-xl font-bold text-gray-900">{t("problemSolution.solution")}</h3>
             </div>
             <div className="space-y-4">
               {solutions.map((solution, index) => (

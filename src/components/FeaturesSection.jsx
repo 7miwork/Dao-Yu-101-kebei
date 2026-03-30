@@ -1,46 +1,47 @@
 import React from 'react';
+import { t } from '../i18n';
 
 const FeaturesSection = () => {
   const features = [
     {
-      title: "Structured Learning System",
-      description: "Organized educational journeys with clear progression, milestones, and curriculum-aligned content.",
+      title: t("features.structuredLearning.title"),
+      description: t("features.structuredLearning.description"),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
         </svg>
       ),
-      status: "Available"
+      status: t("features.structuredLearning.status")
     },
     {
-      title: "Teacher Dashboard",
-      description: "Comprehensive tools for class management, assignment creation, and student oversight.",
+      title: t("features.teacherDashboard.title"),
+      description: t("features.teacherDashboard.description"),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       ),
-      status: "Coming Soon"
+      status: t("features.teacherDashboard.status")
     },
     {
-      title: "Parent Progress Tracking",
-      description: "Real-time insights into children's academic development, assignments, and achievements.",
+      title: t("features.parentTracking.title"),
+      description: t("features.parentTracking.description"),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       ),
-      status: "Coming Soon"
+      status: t("features.parentTracking.status")
     },
     {
-      title: "School Management Tools",
-      description: "Administrative tools for institution-wide coordination, reporting, and user management.",
+      title: t("features.schoolManagement.title"),
+      description: t("features.schoolManagement.description"),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
         </svg>
       ),
-      status: "Coming Soon"
+      status: t("features.schoolManagement.status")
     }
   ];
 
@@ -50,10 +51,10 @@ const FeaturesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Everything you need for modern education
+            {t("features.title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A comprehensive platform designed to support every stakeholder in the educational journey.
+            {t("features.subtitle")}
           </p>
         </div>
 

@@ -4,6 +4,7 @@ import { useAuth } from '../auth/useAuth';
 import { DEMO_ACCOUNTS } from '../auth/demoAccounts';
 import { getRoleLabel } from '../auth/roleLabels';
 import { BASE_URL } from '../config/base';
+import { t } from '../i18n';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -55,10 +56,10 @@ const LoginPage = () => {
             <span className="text-white font-bold text-2xl">DY</span>
           </div>
           <h2 className="text-3xl font-bold text-text-primary">
-            Sign in to Dao-Yu-101
+            {t("login.title")}
           </h2>
           <p className="mt-2 text-text-secondary">
-            Access your educational dashboard
+            {t("login.subtitle")}
           </p>
         </div>
 
@@ -73,7 +74,7 @@ const LoginPage = () => {
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-1">
-                Email address
+                {t("login.email")}
               </label>
               <input
                 id="email"
@@ -90,7 +91,7 @@ const LoginPage = () => {
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-text-primary mb-1">
-                Password
+                {t("login.password")}
               </label>
               <input
                 id="password"
@@ -110,7 +111,7 @@ const LoginPage = () => {
               disabled={loading}
               className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Signing in...' : 'Sign In'}
+              {loading ? t("login.signingIn") : t("login.signIn")}
             </button>
           </div>
         </form>
@@ -118,9 +119,9 @@ const LoginPage = () => {
         {/* Demo Accounts */}
         <div className="mt-8">
           <div className="text-center mb-4">
-            <h3 className="text-lg font-semibold text-text-primary">Quick Access (Demo)</h3>
+            <h3 className="text-lg font-semibold text-text-primary">{t("login.quickAccess")}</h3>
             <p className="text-sm text-text-secondary">
-              Select a role to login instantly
+              {t("login.selectRole")}
             </p>
           </div>
           
@@ -145,7 +146,7 @@ const LoginPage = () => {
             href={BASE_URL}
             className="text-primary hover:text-primary/80 font-medium"
           >
-            ← Back to Home
+            {t("login.backToHome")}
           </a>
         </div>
       </div>

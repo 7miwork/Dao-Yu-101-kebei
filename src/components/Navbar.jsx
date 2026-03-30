@@ -20,13 +20,13 @@ const Navbar = () => {
 
   const getRoleLabel = (role) => {
     const labels = {
-      student: 'Student Dashboard',
-      teacher: 'Teacher Panel',
-      parent: 'Parent Portal',
-      school: 'School Admin',
-      admin: 'System Admin'
+      student: t("roles.student"),
+      teacher: t("roles.teacher"),
+      parent: t("roles.parent"),
+      school: t("roles.school"),
+      admin: t("roles.admin")
     };
-    return labels[role] || 'Dashboard';
+    return labels[role] || t("header.dashboard");
   };
 
   return (
@@ -54,50 +54,50 @@ const Navbar = () => {
                 {user.role === 'student' && (
                   <>
                     <a href={getDashboardUrl('student')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                      My Classes
+                      {t("navbar.myClasses")}
                     </a>
                     <a href={getDashboardUrl('student')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                      Assignments
+                      {t("navbar.assignments")}
                     </a>
                   </>
                 )}
                 {user.role === 'teacher' && (
                   <>
                     <a href={getDashboardUrl('teacher')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                      My Classes
+                      {t("navbar.myClasses")}
                     </a>
                     <a href={getDashboardUrl('teacher')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                      Gradebook
+                      {t("navbar.gradebook")}
                     </a>
                   </>
                 )}
                 {user.role === 'parent' && (
                   <>
                     <a href={getDashboardUrl('parent')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                      Children
+                      {t("navbar.children")}
                     </a>
                     <a href={getDashboardUrl('parent')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                      Reports
+                      {t("navbar.reports")}
                     </a>
                   </>
                 )}
                 {user.role === 'school' && (
                   <>
                     <a href={getDashboardUrl('school')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                      Teachers
+                      {t("navbar.teachers")}
                     </a>
                     <a href={getDashboardUrl('school')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                      Students
+                      {t("navbar.students")}
                     </a>
                   </>
                 )}
                 {user.role === 'admin' && (
                   <>
                     <a href={getDashboardUrl('admin')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                      Users
+                      {t("navbar.users")}
                     </a>
                     <a href={getDashboardUrl('admin')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                      Settings
+                      {t("navbar.settings")}
                     </a>
                   </>
                 )}
@@ -105,10 +105,10 @@ const Navbar = () => {
             ) : (
               <>
                 <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                  Features
+                  {t("navbar.features")}
                 </a>
                 <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
-                  About
+                  {t("navbar.about")}
                 </a>
               </>
             )}
@@ -208,14 +208,14 @@ const Navbar = () => {
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      My Classes
+                      {t("navbar.myClasses")}
                     </a>
                     <a 
                       href={getDashboardUrl('student')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Assignments
+                      {t("navbar.assignments")}
                     </a>
                   </>
                 )}
@@ -226,14 +226,14 @@ const Navbar = () => {
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      My Classes
+                      {t("navbar.myClasses")}
                     </a>
                     <a 
                       href={getDashboardUrl('teacher')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Gradebook
+                      {t("navbar.gradebook")}
                     </a>
                   </>
                 )}
@@ -244,14 +244,14 @@ const Navbar = () => {
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Children
+                      {t("navbar.children")}
                     </a>
                     <a 
                       href={getDashboardUrl('parent')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Reports
+                      {t("navbar.reports")}
                     </a>
                   </>
                 )}
@@ -262,14 +262,14 @@ const Navbar = () => {
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Teachers
+                      {t("navbar.teachers")}
                     </a>
                     <a 
                       href={getDashboardUrl('school')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Students
+                      {t("navbar.students")}
                     </a>
                   </>
                 )}
@@ -280,14 +280,14 @@ const Navbar = () => {
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Users
+                      {t("navbar.users")}
                     </a>
                     <a 
                       href={getDashboardUrl('admin')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Settings
+                      {t("navbar.settings")}
                     </a>
                   </>
                 )}
@@ -295,12 +295,12 @@ const Navbar = () => {
                   <span className="block text-gray-600 text-sm mb-2">
                     {user?.name}
                   </span>
-                  <button
-                    onClick={handleLogout}
-                    className="block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
-                  >
-                    Logout
-                  </button>
+                <button
+                  onClick={handleLogout}
+                  className="block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
+                >
+                  {t("navbar.logout")}
+                </button>
                 </div>
               </>
             ) : (
@@ -310,14 +310,14 @@ const Navbar = () => {
                   className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Features
+                  {t("navbar.features")}
                 </a>
                 <a 
                   href="#" 
                   className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  About
+                  {t("navbar.about")}
                 </a>
                 <div className="space-y-4 pt-4 border-t border-gray-100">
                   <Link 
@@ -325,14 +325,14 @@ const Navbar = () => {
                     className="block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Login
+                    {t("navbar.login")}
                   </Link>
                   <Link 
                     to={getLoginUrl()} 
                     className="block bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-center"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Try Demo
+                    {t("navbar.tryDemo")}
                   </Link>
                 </div>
               </>

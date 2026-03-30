@@ -1,26 +1,8 @@
 import React from 'react';
+import { t } from '../i18n';
 
 const HowItWorksSection = () => {
-  const steps = [
-    {
-      number: "1",
-      title: "Register Your Account",
-      description: "Sign up as a student, teacher, parent, or school administrator. Quick verification process takes less than 2 minutes.",
-      details: ["Choose your role", "Verify email", "Complete profile"]
-    },
-    {
-      number: "2", 
-      title: "Join Class or School",
-      description: "Connect with your educational institution using unique class codes or school invitations.",
-      details: ["Enter class code", "Join school network", "Set preferences"]
-    },
-    {
-      number: "3",
-      title: "Start Learning Journey",
-      description: "Access personalized learning content, track progress, and collaborate with your educational community.",
-      details: ["Access dashboard", "View assignments", "Track progress"]
-    }
-  ];
+  const steps = t("howItWorks.steps");
 
   return (
     <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
@@ -28,10 +10,10 @@ const HowItWorksSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            How Dao-Yu-101 Works
+            {t("howItWorks.title")}
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            Get started in minutes with our simple onboarding process designed for all user types.
+            {t("howItWorks.subtitle")}
           </p>
         </div>
 
@@ -41,7 +23,7 @@ const HowItWorksSection = () => {
             <div key={index} className="relative">
               {/* Step Number */}
               <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-secondary text-white text-2xl font-bold rounded-full mb-6 mx-auto">
-                {step.number}
+                {index + 1}
               </div>
               
               {/* Connector Line */}
@@ -80,14 +62,14 @@ const HowItWorksSection = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl font-bold text-text-primary mb-4">
-                Ready to Transform Your Educational Experience?
+                {t("howItWorks.readyTitle")}
               </h3>
               <p className="text-text-secondary mb-6">
-                Join thousands of students, teachers, and parents who have already streamlined their educational journey with Dao-Yu-101.
+                {t("howItWorks.readyDescription")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="btn-primary">Get Started Now</button>
-                <button className="btn-secondary">Watch Demo</button>
+                <button className="btn-primary">{t("howItWorks.getStarted")}</button>
+                <button className="btn-secondary">{t("howItWorks.watchDemo")}</button>
               </div>
             </div>
             
@@ -101,8 +83,8 @@ const HowItWorksSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <div className="font-medium text-text-primary">Student Dashboard</div>
-                    <div className="text-sm text-text-secondary">View assignments and progress</div>
+                    <div className="font-medium text-text-primary">{t("howItWorks.demoPreview.student.title")}</div>
+                    <div className="text-sm text-text-secondary">{t("howItWorks.demoPreview.student.description")}</div>
                   </div>
                 </div>
                 
@@ -113,8 +95,8 @@ const HowItWorksSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <div className="font-medium text-text-primary">Teacher Tools</div>
-                    <div className="text-sm text-text-secondary">Create and manage classes</div>
+                    <div className="font-medium text-text-primary">{t("howItWorks.demoPreview.teacher.title")}</div>
+                    <div className="text-sm text-text-secondary">{t("howItWorks.demoPreview.teacher.description")}</div>
                   </div>
                 </div>
                 
@@ -125,8 +107,8 @@ const HowItWorksSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <div className="font-medium text-text-primary">Parent Access</div>
-                    <div className="text-sm text-text-secondary">Monitor child's progress</div>
+                    <div className="font-medium text-text-primary">{t("howItWorks.demoPreview.parent.title")}</div>
+                    <div className="text-sm text-text-secondary">{t("howItWorks.demoPreview.parent.description")}</div>
                   </div>
                 </div>
               </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import { useAuth } from '../../auth/useAuth';
 import Card from '../../components/Card';
+import { t } from '../../i18n';
 
 const TeacherDashboard = () => {
   const { user, logout } = useAuth();
@@ -19,10 +20,10 @@ const TeacherDashboard = () => {
             </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-900">
-                Welcome to your Teacher Dashboard
+                {t("teacher.title")}
               </h2>
               <p className="text-gray-600">
-                Manage your classes, create assignments, and track student progress.
+                {t("teacher.subtitle")}
               </p>
             </div>
           </div>
@@ -36,7 +37,7 @@ const TeacherDashboard = () => {
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
               </svg>
             </div>
-            <span className="text-gray-900 font-medium">My Classes</span>
+            <span className="text-gray-900 font-medium">{t("teacher.myClasses")}</span>
           </div>
         </Card>
 
@@ -48,7 +49,7 @@ const TeacherDashboard = () => {
                 <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd"/>
               </svg>
             </div>
-            <span className="text-gray-900 font-medium">Gradebook</span>
+            <span className="text-gray-900 font-medium">{t("teacher.gradebook")}</span>
           </div>
         </Card>
 
@@ -60,7 +61,7 @@ const TeacherDashboard = () => {
                 <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd"/>
               </svg>
             </div>
-            <span className="text-gray-900 font-medium">Create Assignment</span>
+            <span className="text-gray-900 font-medium">{t("teacher.createAssignment")}</span>
           </div>
         </Card>
 
@@ -72,29 +73,29 @@ const TeacherDashboard = () => {
                 <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
               </svg>
             </div>
-            <span className="text-gray-900 font-medium">Student Progress</span>
+            <span className="text-gray-900 font-medium">{t("teacher.studentProgress")}</span>
           </div>
         </Card>
 
         {/* Stats Card */}
         <Card className="md:col-span-2 lg:col-span-3" gradient={true} hover={false}>
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Stats</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">{t("teacher.quickStats")}</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center">
               <div className="text-2xl font-bold text-green-600">5</div>
-              <div className="text-sm text-gray-600">Active Classes</div>
+              <div className="text-sm text-gray-600">{t("teacher.activeClasses")}</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-blue-600">127</div>
-              <div className="text-sm text-gray-600">Total Students</div>
+              <div className="text-sm text-gray-600">{t("teacher.totalStudents")}</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-purple-600">23</div>
-              <div className="text-sm text-gray-600">Assignments</div>
+              <div className="text-sm text-gray-600">{t("teacher.assignments")}</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-gray-900">4.2</div>
-              <div className="text-sm text-gray-600">Avg. Grade</div>
+              <div className="text-sm text-gray-600">{t("teacher.avgGrade")}</div>
             </div>
           </div>
         </Card>

@@ -1,3 +1,5 @@
+import { t } from '../i18n';
+
 export default function Sidebar({ user }) {
   const role = user?.role;
 
@@ -13,31 +15,31 @@ export default function Sidebar({ user }) {
       <nav style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {role === "student" && (
           <>
-            <a href="/#/dashboard/student" style={{ textDecoration: "none", color: "#333", padding: "8px 0" }}>Overview</a>
+            <a href="/#/dashboard/student" style={{ textDecoration: "none", color: "#333", padding: "8px 0" }}>{t("sidebar.overview")}</a>
           </>
         )}
 
         {role === "teacher" && (
           <>
-            <a href="/#/dashboard/teacher" style={{ textDecoration: "none", color: "#333", padding: "8px 0" }}>Classes</a>
+            <a href="/#/dashboard/teacher" style={{ textDecoration: "none", color: "#333", padding: "8px 0" }}>{t("sidebar.classes")}</a>
           </>
         )}
 
         {role === "parent" && (
           <>
-            <a href="/#/dashboard/parent" style={{ textDecoration: "none", color: "#333", padding: "8px 0" }}>Child Progress</a>
+            <a href="/#/dashboard/parent" style={{ textDecoration: "none", color: "#333", padding: "8px 0" }}>{t("sidebar.childProgress")}</a>
           </>
         )}
 
         {role === "school" && (
           <>
-            <a href="/#/dashboard/school" style={{ textDecoration: "none", color: "#333", padding: "8px 0" }}>School Panel</a>
+            <a href="/#/dashboard/school" style={{ textDecoration: "none", color: "#333", padding: "8px 0" }}>{t("sidebar.schoolPanel")}</a>
           </>
         )}
 
         {role === "admin" && (
           <>
-            <a href="/#/dashboard/admin" style={{ textDecoration: "none", color: "#333", padding: "8px 0" }}>Admin Panel</a>
+            <a href="/#/dashboard/admin" style={{ textDecoration: "none", color: "#333", padding: "8px 0" }}>{t("sidebar.adminPanel")}</a>
           </>
         )}
       </nav>

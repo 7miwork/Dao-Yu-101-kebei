@@ -6,6 +6,7 @@ import ProblemSolutionSection from '../components/ProblemSolutionSection';
 import FeaturesSection from '../components/FeaturesSection';
 import UIPreviewSection from '../components/UIPreviewSection';
 import CTASection from '../components/CTASection';
+import { t } from '../i18n';
 
 const LandingPage = () => {
   return (
@@ -32,38 +33,38 @@ const LandingPage = () => {
                 <span className="text-lg font-semibold text-gray-900">Dao-Yu-101</span>
               </div>
               <p className="text-gray-600 text-sm leading-relaxed">
-                A Modern Learning System for Schools & Families
+                {t("footer.description")}
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Product</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">{t("footer.product")}</h4>
               <ul className="space-y-3 text-gray-600 text-sm">
-                <li><a href="#features" className="hover:text-blue-600 transition-colors">Features</a></li>
-                <li><a href="/login" className="hover:text-blue-600 transition-colors">Demo</a></li>
+                <li><a href="#features" className="hover:text-blue-600 transition-colors">{t("footer.features")}</a></li>
+                <li><a href="/login" className="hover:text-blue-600 transition-colors">{t("footer.demo")}</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">{t("footer.company")}</h4>
               <ul className="space-y-3 text-gray-600 text-sm">
-                <li><a href="#" className="hover:text-blue-600 transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-blue-600 transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-blue-600 transition-colors">Privacy</a></li>
+                <li><a href="#" className="hover:text-blue-600 transition-colors">{t("footer.about")}</a></li>
+                <li><a href="#" className="hover:text-blue-600 transition-colors">{t("footer.contact")}</a></li>
+                <li><a href="#" className="hover:text-blue-600 transition-colors">{t("footer.privacy")}</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Support</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">{t("footer.support")}</h4>
               <ul className="space-y-3 text-gray-600 text-sm">
-                <li><a href="mailto:support@dao-yu-101.com" className="hover:text-blue-600 transition-colors">Email Support</a></li>
-                <li><a href="#" className="hover:text-blue-600 transition-colors">Documentation</a></li>
+                <li><a href="mailto:support@dao-yu-101.com" className="hover:text-blue-600 transition-colors">{t("footer.emailSupport")}</a></li>
+                <li><a href="#" className="hover:text-blue-600 transition-colors">{t("footer.documentation")}</a></li>
               </ul>
             </div>
           </div>
           
           <div className="mt-12 pt-8 border-t border-gray-100 text-center text-gray-500 text-sm">
-            <p>&copy; 2024 Dao-Yu-101. All rights reserved.</p>
+            <p>{t("footer.copyright")}</p>
           </div>
         </div>
       </footer>
