@@ -234,10 +234,17 @@ export default {
     platformVersion: "平台版本"
   },
   sidebar: {
-    overview: "概覽",
+    general: "一般",
+    dashboard: "儀表板",
+    learning: "學習",
+    myLearning: "我的學習",
+    teaching: "教學",
     classes: "班級",
+    family: "家庭",
     childProgress: "孩子進度",
-    schoolPanel: "學校面板",
+    school: "學校",
+    overview: "概覽",
+    system: "系統",
     adminPanel: "管理員面板"
   }
 };

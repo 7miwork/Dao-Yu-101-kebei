@@ -234,10 +234,17 @@ export default {
     platformVersion: "Platform Version"
   },
   sidebar: {
-    overview: "Overview",
+    general: "General",
+    dashboard: "Dashboard",
+    learning: "Learning",
+    myLearning: "My Learning",
+    teaching: "Teaching",
     classes: "Classes",
+    family: "Family",
     childProgress: "Child Progress",
-    schoolPanel: "School Panel",
+    school: "School",
+    overview: "Overview",
+    system: "System",
     adminPanel: "Admin Panel"
   }
 };
