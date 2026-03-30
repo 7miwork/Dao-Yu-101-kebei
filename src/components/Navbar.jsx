@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
 import { BASE_URL, getDashboardUrl, getLoginUrl } from '../config/base';
+import { t, setLanguage, getLanguage } from '../i18n';
 
 const Navbar = () => {
   const { isAuthenticated, user, logout } = useAuth();
@@ -113,6 +114,19 @@ const Navbar = () => {
             )}
           </div>
 
+          {/* Language Switcher */}
+          <div className="hidden md:flex items-center">
+            <select 
+              value={getLanguage()} 
+              onChange={(e) => setLanguage(e.target.value)}
+              className="text-sm text-gray-600 bg-transparent border-none cursor-pointer focus:outline-none"
+            >
+              <option value="en">EN</option>
+              <option value="de">DE</option>
+              <option value="zh-TW">中文</option>
+            </select>
+          </div>
+
           {/* Desktop Auth */}
           <div className="hidden md:flex items-center space-x-4">
             {isAuthenticated ? (
@@ -124,7 +138,7 @@ const Navbar = () => {
                   onClick={handleLogout}
                   className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
                 >
-                  Logout
+                  {t("navbar.logout")}
                 </button>
               </div>
             ) : (
@@ -133,16 +147,29 @@ const Navbar = () => {
                   to={getLoginUrl()} 
                   className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
                 >
-                  Login
+                  {t("navbar.login")}
                 </Link>
                 <Link 
                   to={getLoginUrl()} 
                   className="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  Try Demo
+                  {t("navbar.tryDemo")}
                 </Link>
               </>
             )}
+          </div>
+
+          {/* Mobile Language Switcher */}
+          <div className="md:hidden flex items-center mr-2">
+            <select 
+              value={getLanguage()} 
+              onChange={(e) => setLanguage(e.target.value)}
+              className="text-sm text-gray-600 bg-transparent border-none cursor-pointer focus:outline-none"
+            >
+              <option value="en">EN</option>
+              <option value="de">DE</option>
+              <option value="zh-TW">中文</option>
+            </select>
           </div>
 
           {/* Mobile menu button */}

@@ -1,3 +1,5 @@
+import { t } from "../i18n";
+
 export default function Header({ user, logout }) {
   return (
     <header style={{
@@ -9,7 +11,7 @@ export default function Header({ user, logout }) {
       padding: "0 20px",
       backgroundColor: "#fff"
     }}>
-      <div style={{ fontSize: "18px", fontWeight: "500" }}>Dashboard</div>
+      <div style={{ fontSize: "18px", fontWeight: "500" }}>{t("header.dashboard")}</div>
 
       <div style={{ display: "flex", alignItems: "center" }}>
         <span style={{ marginRight: "10px", color: "#666" }}>
@@ -26,7 +28,7 @@ export default function Header({ user, logout }) {
             fontSize: "14px"
           }}
         >
-          Logout
+          {t("header.logout")}
         </button>
       </div>
     </header>
