@@ -1,6 +1,6 @@
 // Global base URL constant for GitHub Pages deployment
 // This ensures all navigation stays within the repository path
-export const BASE_URL = "/";
+export const BASE_URL = "/Dao-Yu-101-kebei/";
 
 // Full base URL for external links
 export const FULL_BASE_URL = "https://7miwork.github.io/Dao-Yu-101-kebei/";
