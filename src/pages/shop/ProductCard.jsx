@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ProductCard({ product }) {
   return (
     <div style={{
@@ -15,9 +17,9 @@ export default function ProductCard({ product }) {
         {product.type === "school" ? (
           <button>Contact Sales</button>
         ) : (
-          <a href={`/#/checkout?product=${product.id}`}>
+          <Link to={`/checkout?product=${product.id}`}>
             <button>Buy Now</button>
-          </a>
+          </Link>
         )}
       </div>
     </div>

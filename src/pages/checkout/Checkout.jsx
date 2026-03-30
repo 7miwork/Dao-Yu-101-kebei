@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { products } from "../../data/products";
 
 export default function Checkout() {
@@ -18,9 +18,9 @@ export default function Checkout() {
       <strong>{product.price}</strong>
 
       <div style={{ marginTop: "20px" }}>
-        <a href="/#/register">
+        <Link to="/register">
           <button>Continue to Registration</button>
-        </a>
+        </Link>
       </div>
     </div>
   );

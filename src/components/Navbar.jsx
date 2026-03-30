@@ -43,65 +43,65 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#/shop" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+            <Link to="/shop" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
               {t("navbar.shop") || "Shop"}
-            </a>
+            </Link>
             {isAuthenticated && user ? (
               <>
-                <a 
-                  href={getDashboardLink()} 
+                <Link 
+                  to={getDashboardLink()} 
                   className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
                 >
                   {getRoleLabel(user.role)}
-                </a>
+                </Link>
                 {user.role === 'student' && (
                   <>
-                    <a href={getDashboardUrl('student')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <Link to={getDashboardUrl('student')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       {t("navbar.myClasses")}
-                    </a>
-                    <a href={getDashboardUrl('student')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    </Link>
+                    <Link to={getDashboardUrl('student')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       {t("navbar.assignments")}
-                    </a>
+                    </Link>
                   </>
                 )}
                 {user.role === 'teacher' && (
                   <>
-                    <a href={getDashboardUrl('teacher')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <Link to={getDashboardUrl('teacher')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       {t("navbar.myClasses")}
-                    </a>
-                    <a href={getDashboardUrl('teacher')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    </Link>
+                    <Link to={getDashboardUrl('teacher')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       {t("navbar.gradebook")}
-                    </a>
+                    </Link>
                   </>
                 )}
                 {user.role === 'parent' && (
                   <>
-                    <a href={getDashboardUrl('parent')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <Link to={getDashboardUrl('parent')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       {t("navbar.children")}
-                    </a>
-                    <a href={getDashboardUrl('parent')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    </Link>
+                    <Link to={getDashboardUrl('parent')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       {t("navbar.reports")}
-                    </a>
+                    </Link>
                   </>
                 )}
                 {user.role === 'school' && (
                   <>
-                    <a href={getDashboardUrl('school')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <Link to={getDashboardUrl('school')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       {t("navbar.teachers")}
-                    </a>
-                    <a href={getDashboardUrl('school')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    </Link>
+                    <Link to={getDashboardUrl('school')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       {t("navbar.students")}
-                    </a>
+                    </Link>
                   </>
                 )}
                 {user.role === 'admin' && (
                   <>
-                    <a href={getDashboardUrl('admin')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    <Link to={getDashboardUrl('admin')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       {t("navbar.users")}
-                    </a>
-                    <a href={getDashboardUrl('admin')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                    </Link>
+                    <Link to={getDashboardUrl('admin')} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                       {t("navbar.settings")}
-                    </a>
+                    </Link>
                   </>
                 )}
               </>
@@ -195,110 +195,110 @@ const Navbar = () => {
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
             <div className="md:hidden py-4 space-y-4 border-t border-gray-100">
-              <a 
-                href="#/shop" 
+              <Link 
+                to="/shop" 
                 className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t("navbar.shop") || "Shop"}
-              </a>
+              </Link>
               {isAuthenticated && user ? (
                 <>
-                  <a 
-                    href={getDashboardLink()} 
+                  <Link 
+                    to={getDashboardLink()} 
                     className="block text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {getRoleLabel(user.role)}
-                  </a>
+                  </Link>
                 {user.role === 'student' && (
                   <>
-                    <a 
-                      href={getDashboardUrl('student')} 
+                    <Link 
+                      to={getDashboardUrl('student')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t("navbar.myClasses")}
-                    </a>
-                    <a 
-                      href={getDashboardUrl('student')} 
+                    </Link>
+                    <Link 
+                      to={getDashboardUrl('student')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t("navbar.assignments")}
-                    </a>
+                    </Link>
                   </>
                 )}
                 {user.role === 'teacher' && (
                   <>
-                    <a 
-                      href={getDashboardUrl('teacher')} 
+                    <Link 
+                      to={getDashboardUrl('teacher')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t("navbar.myClasses")}
-                    </a>
-                    <a 
-                      href={getDashboardUrl('teacher')} 
+                    </Link>
+                    <Link 
+                      to={getDashboardUrl('teacher')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t("navbar.gradebook")}
-                    </a>
+                    </Link>
                   </>
                 )}
                 {user.role === 'parent' && (
                   <>
-                    <a 
-                      href={getDashboardUrl('parent')} 
+                    <Link 
+                      to={getDashboardUrl('parent')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t("navbar.children")}
-                    </a>
-                    <a 
-                      href={getDashboardUrl('parent')} 
+                    </Link>
+                    <Link 
+                      to={getDashboardUrl('parent')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t("navbar.reports")}
-                    </a>
+                    </Link>
                   </>
                 )}
                 {user.role === 'school' && (
                   <>
-                    <a 
-                      href={getDashboardUrl('school')} 
+                    <Link 
+                      to={getDashboardUrl('school')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t("navbar.teachers")}
-                    </a>
-                    <a 
-                      href={getDashboardUrl('school')} 
+                    </Link>
+                    <Link 
+                      to={getDashboardUrl('school')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t("navbar.students")}
-                    </a>
+                    </Link>
                   </>
                 )}
                 {user.role === 'admin' && (
                   <>
-                    <a 
-                      href={getDashboardUrl('admin')} 
+                    <Link 
+                      to={getDashboardUrl('admin')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t("navbar.users")}
-                    </a>
-                    <a 
-                      href={getDashboardUrl('admin')} 
+                    </Link>
+                    <Link 
+                      to={getDashboardUrl('admin')} 
                       className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {t("navbar.settings")}
-                    </a>
+                    </Link>
                   </>
                 )}
                 <div className="pt-4 border-t border-gray-100">
