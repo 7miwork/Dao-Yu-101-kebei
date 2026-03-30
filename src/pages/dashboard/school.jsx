@@ -1,6 +1,7 @@
 import React from 'react';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import { useAuth } from '../../auth/useAuth';
+import Card from '../../components/Card';
 
 const SchoolDashboard = () => {
   const { user, logout } = useAuth();
@@ -9,7 +10,7 @@ const SchoolDashboard = () => {
     <DashboardLayout user={user} logout={logout}>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Welcome Card */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:col-span-2 lg:col-span-3">
+        <Card className="md:col-span-2 lg:col-span-3" hover={false}>
           <div className="flex items-center space-x-4">
             <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white">
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -25,10 +26,10 @@ const SchoolDashboard = () => {
               </p>
             </div>
           </div>
-        </div>
+        </Card>
 
         {/* Teachers */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer">
+        <Card>
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
@@ -37,10 +38,10 @@ const SchoolDashboard = () => {
             </div>
             <span className="text-gray-900 font-medium">Manage Teachers</span>
           </div>
-        </div>
+        </Card>
 
         {/* Students */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer">
+        <Card>
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -49,10 +50,10 @@ const SchoolDashboard = () => {
             </div>
             <span className="text-gray-900 font-medium">Manage Students</span>
           </div>
-        </div>
+        </Card>
 
         {/* Reports */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer">
+        <Card>
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
@@ -61,10 +62,10 @@ const SchoolDashboard = () => {
             </div>
             <span className="text-gray-900 font-medium">Generate Reports</span>
           </div>
-        </div>
+        </Card>
 
         {/* Institution Settings */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer">
+        <Card>
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
@@ -73,10 +74,10 @@ const SchoolDashboard = () => {
             </div>
             <span className="text-gray-900 font-medium">Institution Settings</span>
           </div>
-        </div>
+        </Card>
 
         {/* Stats Card */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:col-span-2 lg:col-span-3 bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200">
+        <Card className="md:col-span-2 lg:col-span-3" gradient={true} hover={false}>
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Institution Overview</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center">
@@ -96,7 +97,7 @@ const SchoolDashboard = () => {
               <div className="text-sm text-gray-600">Attendance</div>
             </div>
           </div>
-        </div>
+        </Card>
       </div>
     </DashboardLayout>
   );
