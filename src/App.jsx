@@ -4,6 +4,7 @@ import { AuthProviderWrapper } from './auth/authProvider';
 import { ProtectedRoute, PublicRoute } from './auth/protectedRoute';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
+import Shop from './pages/shop/Shop';
 import StudentDashboard from './pages/dashboard/student';
 import TeacherDashboard from './pages/dashboard/teacher';
 import ParentDashboard from './pages/dashboard/parent';
@@ -45,6 +46,11 @@ function App() {
                 <LoginPage />
               </PublicRoute>
             } 
+          />
+          
+          <Route 
+            path="/shop" 
+            element={<Shop />} 
           />
           
           {/* Protected Dashboard Routes */}

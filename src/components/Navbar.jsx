@@ -43,6 +43,9 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <a href="#/shop" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+              {t("navbar.shop") || "Shop"}
+            </a>
             {isAuthenticated && user ? (
               <>
                 <a 
@@ -189,18 +192,25 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-4 border-t border-gray-100">
-            {isAuthenticated && user ? (
-              <>
-                <a 
-                  href={getDashboardLink()} 
-                  className="block text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {getRoleLabel(user.role)}
-                </a>
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="md:hidden py-4 space-y-4 border-t border-gray-100">
+              <a 
+                href="#/shop" 
+                className="block text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t("navbar.shop") || "Shop"}
+              </a>
+              {isAuthenticated && user ? (
+                <>
+                  <a 
+                    href={getDashboardLink()} 
+                    className="block text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {getRoleLabel(user.role)}
+                  </a>
                 {user.role === 'student' && (
                   <>
                     <a 
