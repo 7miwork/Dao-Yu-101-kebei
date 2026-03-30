@@ -1,8 +1,4 @@
 export default function ProductCard({ product }) {
-  const handleClick = () => {
-    alert("Coming soon");
-  };
-
   return (
     <div style={{
       border: "1px solid #E2E8F0",
@@ -17,9 +13,11 @@ export default function ProductCard({ product }) {
 
       <div style={{ marginTop: "10px" }}>
         {product.type === "school" ? (
-          <button onClick={handleClick}>Contact Sales</button>
+          <button>Contact Sales</button>
         ) : (
-          <button onClick={handleClick}>Buy Now</button>
+          <a href={`/#/checkout?product=${product.id}`}>
+            <button>Buy Now</button>
+          </a>
         )}
       </div>
     </div>

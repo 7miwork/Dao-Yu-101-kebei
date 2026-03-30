@@ -5,6 +5,8 @@ import { ProtectedRoute, PublicRoute } from './auth/protectedRoute';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import Shop from './pages/shop/Shop';
+import Checkout from './pages/checkout/Checkout';
+import Register from './pages/auth/Register';
 import StudentDashboard from './pages/dashboard/student';
 import TeacherDashboard from './pages/dashboard/teacher';
 import ParentDashboard from './pages/dashboard/parent';
@@ -51,6 +53,16 @@ function App() {
           <Route 
             path="/shop" 
             element={<Shop />} 
+          />
+          
+          <Route 
+            path="/checkout" 
+            element={<Checkout />} 
+          />
+          
+          <Route 
+            path="/register" 
+            element={<Register />} 
           />
           
           {/* Protected Dashboard Routes */}
